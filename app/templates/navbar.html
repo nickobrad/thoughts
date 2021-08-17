@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">THOUGHTS</a>
+    <a class="navbar-brand" href="/home">
+      <img src="{{url_for('static', filename='images/sitepoint.png')}}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      THOUGHTS
+    </a>
     {% if current_user.is_authenticated %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,9 +40,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{url_for('main.home')}}">
               {% if current_user.profile_picture %}
-                <img src="{{ url_for('static', filename = current_user.profile_picture)}}" alt="" width="30" height="30">
+                <img src="{{ url_for('static', filename = current_user.profile_picture)}}" alt="" width="33" height="33">
               {% else %}
-                <img src="{{ url_for('static', filename = 'profile_photos/default.jpeg')}}" alt="" width="30" height="24">
+                <img src="{{ url_for('static', filename = 'profile_photos/default.jpeg')}}" alt="" width="33" height="33">
               {% endif %}
             </a>
           </li>

@@ -1,3 +1,8 @@
+.bigWrapper{
+    height: 100%;
+    background-image: url(../images/profile.jpg);
+    background-size:100% 100%;
+}
 .ppic{
     width: 300px;
     display: flex; 
@@ -6,12 +11,12 @@
     justify-content: center;
 }
 .pic{
-    /* padding: 10px 10px; */
+    padding: 10px 10px;
     height: 300px;
     width: 300px;
 }
 .modalwrap{
-    padding: 10px 10px;
+    padding: 20px 10px;
 }
 .dets{
     border-left: 3px solid darkslategray;

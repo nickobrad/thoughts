@@ -56,7 +56,7 @@ def register():
                 user = User(firstname = fname, secondname = lname, username = uname, email = email, secured_password = password1)
                 db.session.add(user)
                 db.session.commit()
-                mail_message("Karibu Thoughts", "email/welcome_user", user.email, user = user)
+                mail_message("Karibu Thoughts", "email/karibu", user.email, user = user)
                 return redirect(url_for('authentication.login'))
             else:
                 flash('Your passwords do not match')

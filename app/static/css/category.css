@@ -1,6 +1,7 @@
 .bigWrapper{
-    height:100%;
-    background-color: #616283;
+    height: 100%;
+    background-image: url(../images/categ2.jpg);
+    background-size:100% 100%;
 }
 .heading{
     height:40%;
@@ -8,6 +9,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: whitesmoke;
 }
 .context{
     padding: 10px 10px; 
@@ -16,5 +18,5 @@
 }
 .card{
     color: whitesmoke;
-    background-color: rgb(255, 255, 255, 0) !important;
+    background-color: rgb(255, 255, 255, 0.2) !important;
 }

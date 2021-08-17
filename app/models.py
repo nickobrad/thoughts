@@ -15,7 +15,7 @@ class User(UserMixin, db.Model):
 
     __tablename__ = 'users'
 
-    username = db.Column(db.String(255), primary_key = True)
+    username = db.Column(db.String(255),unique = True, primary_key = True)
     firstname = db.Column(db.String(255))
     secondname = db.Column(db.String(255))
     email = db.Column(db.String(255), unique = True, index = True) 
@@ -58,12 +58,17 @@ class Pitch(db.Model):
     comments = db.relationship('PitchComment', backref = 'pitch', lazy = "dynamic")
 
     def save_pitch(self):
-        db.session.add(self)
+        db.session.add(self) 
         db.session.commit()
 
     def delete_pitch(self):
         db.session.delete(self)
         db.sesion.commit()
+
+    @classmethod
+    def pitch_by_id(cls, id):
+        pitches = Pitch.query.filter_by(id = id).first()
+        return pitches
 
     @classmethod
     def all_pitches(cls, inputUserName):

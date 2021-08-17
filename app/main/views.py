@@ -87,6 +87,48 @@ def show_comments(id):
 
     return render_template('comments.html', pitch = pitch, comments = comments, title = title)
 
+@main.route('/post/pitch/<id>/comments',methods = ['GET','POST'])
+def plus(id):
+
+    comments = PitchComment.query.filter_by(pitch_id = id).all()
+    pitch = Pitch.query.filter_by(id = id).first()
+    title = f'Comments on Pitch {pitch.id}'
+
+    if request.form:
+        if request.form['like'] == "upvote":
+            print(request.form['like'])
+            if pitch.upvote == 0:
+                pitch.upvote = 1
+                db.session.add(pitch)
+                db.session.commit()
+            return redirect(url_for('main.show_comments', id = pitch.id))
+        elif pitch.upvote > 0:
+            pitch.upvote = pitch.upvote + 1
+            db.session.add(pitch)
+            db.session.commit()
+            return redirect(url_for('main.show_comments', id = pitch.id))
+    
+    return redirect(url_for('main.show_comments', comments = comments, pitch = pitch, id = pitch.id))
+
+@main.route('/post/pitch/<id>/comments')
+def minus(id):
+
+    pitch = Pitch.query.filter_by(id = id).first()
+    title = f'Comments on Pitch {pitch.id}'
+
+    if pitch.downvote == 0:
+        pitch.downvote = 1
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.show_comments', id = pitch.id))
+    elif pitch.downvote > 0:
+        pitch.downvote = pitch.upvote + 1
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.show_comments', id = pitch.id))
+    
+    return redirect(url_for('main.show_comments', id = pitch.id))
+
 @main.route('/user/profile/<userss>', methods = ['GET', 'POST'])
 def profile(userss):
 

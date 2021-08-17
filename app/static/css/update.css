@@ -1,6 +1,19 @@
-.container-fluid{
-height:100%;
+.bigWrapper{
+    height: 100%;
+    background-image: url(../images/update.jpg);
+    background-size:100% 100%;
 }
 .row{
     padding: 10px 0px;
+}
+.col1{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.col1 img{
+    opacity: 0.9;
+}
+.col2 textarea{
+    background-color: transparent;
 }

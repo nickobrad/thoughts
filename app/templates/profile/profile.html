@@ -18,7 +18,7 @@ My Profile
 
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid bigWrapper">
     <div class="row row1">
         <div class="col ppic">
             {% if user.profile_picture %}
@@ -100,8 +100,14 @@ My Profile
                         {{ user.profile_bio }}
                     </p>
                     {% else %}
+                    <h4>
+                        Bio
+                    </h4>
                     <p>
                         No bio provided
+                    </p>
+                    <p>
+                        You have not posted any pitch. Click <a href="{{url_for('main.gotoupdate', userss = user.username)}}"> here</a> to post one :)
                     </p>
                     {% endif %}
                 </div>
@@ -111,12 +117,23 @@ My Profile
     <hr>
     <div class="row">
         <div class="mypitches">
+            {% if mycomments %}
             <h3 style="text-align: center;">
                 My Pitches
             </h3>
             <div class="thepitch">
-                {{ macro.myPitches(mypitches) }}
+                Comments{{ macro.myPitches(mypitches) }}
             </div>
+            {% else %}
+            <h3 style="text-align: center;">
+                My Pitches
+            </h3>
+            <div class="thecomment">
+                <p>
+                    You have not posted any pitch. Click <a href="{{url_for('main.post_pitch')}}"> here</a> to post one :)
+                </p>
+            </div>
+            {% endif %}
         </div>
     </div>
     <hr>
@@ -130,8 +147,8 @@ My Profile
                 {{ macro.myComments(mycomments) }}
             </div>
             {% else %}
-            <h3>
-                My Pitches
+            <h3 style="text-align: center;">
+                My Comments
             </h3>
             <div class="thecomment">
                 <p>
@@ -139,15 +156,8 @@ My Profile
                 </p>
             </div>
             {% endif %}
-            {{ macro}}
         </div>
     </div>
 </div>
 {% endblock content %}
 
-<h4>
-    Bio
-</h4>
-<p>
-    You have no Bio
-</p>

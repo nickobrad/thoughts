@@ -2,8 +2,14 @@ import unittest
 from app.models import User
 
 class UserModelTest(unittest.TestCase):
+
+
     def setUp(self):
+        self.new_james = User(username = 'James',secured_password = 'potato', email = 'james@ms.com')
         self.new_user = User(password = 'banana')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_james, User))
 
     def test_password_setter(self):
         self.assertTrue(self.new_user.secured_password is not None)

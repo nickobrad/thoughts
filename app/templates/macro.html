@@ -14,7 +14,7 @@
                     </p>
                     <hr>
                     <h6 class="card-subtitle mb-2 text-muted">
-                        Likes: {{ pitch.upvote }} | Dislikes: {{ pitch.downvote }}        
+                        Likes: {{ pitch.upvote }} | Dislikes: {{ pitch.downvote }}   
                     </h6>
                     <a href="{{ url_for('main.make_comment', id = pitch.id) }}" class="card-link">Comment Here</a>
                     <a href="{{ url_for('main.show_comments', id = pitch.id) }}" class="card-link">View Comments</a>
