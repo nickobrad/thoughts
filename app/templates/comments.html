@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macro.html' as macro %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/comments.css')}}">
+{% endblock %} 
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Cactus
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+    <div class="container-fluid bigWrapper">
+        <div class="row row1">
+            <div class="col col1">
+                <div class="texss">
+                    <h6>
+                        Pitch ID:
+                    </h6>
+                    <p>
+                        {{ pitch.id }}
+                    </p>
+                </div>
+                <div class="texss">
+                    <h5>
+                        Posted by:
+                    </h5>
+                    <p>
+                        {{ pitch.user}}
+                    </p>
+                </div>
+                <div class="texss">
+                    <h5>
+                        Category ID:
+                    </h5>
+                    <p>
+                        {{ pitch.categoryOfPitch}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row row2">
+            <div class="col col3">
+                <div class="texs">
+                    <h5>
+                        The Pitch:
+                    </h5>
+                    <p>
+                        {{ pitch.pitch}}
+                    </p>
+                </div>    
+            </div>
+            <div class="col col4">
+                <div class="newcomment">
+                    <div class="heading">
+                        <h5 style="color: white;">
+                            Make a new comment here:
+                        </h5>
+                    </div>
+                    <div class="theinput">
+                        <form class="form-floating" action="{{url_for('main.make_comment', id = pitch.id)}}" method = "POST">
+                            <div class="form-floating mb-3">
+                                <textarea type="text" style="height: 100px;" class="form-control" name = "comment" id="comment" value = "{{ comment }}" placeholder="New Comment" required></textarea>
+                                <label for="comment" class="form-label">Your Comment</label>
+                            </div>
+                            <button type="submit" class="btn btn-outline-secondary">Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="context">
+            {% if pitch.comments %}
+                {{ macro.showComments(comments) }} 
+            {% else %}
+                <p>
+                    This Pitch has no Comments at the moment. Be the first to add one :)
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macro.html' as macro %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/category.css')}}">
+{% endblock %} 
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Cactus 
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+    <div class="container-fluid bigWrapper">
+        <div class="heading">
+            <h3>
+                Welcome to the {{ title }} section.
+                Here you will find all the pitches that will be helpful to you.
+                Good luck in your endeavours! 
+            </h3>
+        </div>
+        <div class="context">
+            {{ macro.showPitch(categ) }}
+        </div>
+    </div>
+
+{% endblock content %}

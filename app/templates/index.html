@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% import 'macro.html' as macro %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %} 
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Cactus
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid bigWrapper">
+
+        <div class="love">
+            <div class="heading">
+                <h4>
+                    Love Pitch
+                </h4>
+                <p>
+                    Trying to win someone's heart? These are some of the pitches a few of our users have created. 
+                    Feel free to go through them.
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    {{ macro.showPitchesHP(love) }}
+                </p>
+            </div>
+            <div class="footer"> 
+                To see more <a href="">click here</a>
+            </div>
+        </div>
+    
+        <hr>
+
+        <div class="job">
+            <div class="heading">
+                <h4>
+                    Work Pitch
+                </h4>
+                <p>
+                    If you are preparing for an interview, you have come to the right place. 
+                    We have a wide variety of pitches that will help you catch the attention of your employers.
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    {{ macro.showPitchesHP(work) }}
+                </p>
+            </div>
+            <div class="footer">
+                To see more <a href="">click here</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="hate">
+            <div class="heading">
+                <h4>
+                    Not so amused Pitch
+                </h4>
+                <p>
+                    As a company we do not promote violence. There are some situations that may warrant you to air your discomfort towards others.
+                    View some pitches that show discomfort but in a respectful way.
+                </p>
+            </div>
+            <div class="content">
+                <p>
+                    {{ macro.showPitchesHP(hate) }}
+                </p>
+            </div>
+            <div class="footer">
+                To see more <a href="">click here</a>
+            </div>
+        </div> 
+
+    </div>
+{% endblock content %}
