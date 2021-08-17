@@ -93,8 +93,8 @@ class PitchComment(db.Model):
         db.sesion.commit()
 
     @classmethod
-    def all_comments(cls, inputUserID):
-        comments = PitchComment.query.filter_by(user_id = inputUserID).all()
+    def all_comments(cls, inputUser):
+        comments = PitchComment.query.filter_by(user = inputUser).all()
         return comments
 
 

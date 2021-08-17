@@ -3,9 +3,7 @@ from app.models import User, Pitch
 from app import db
 
 class PitchTest(unittest.TestCase):
-    '''
-    Test Class to test the behaviour of the Review class
-    '''
+    
     def tearDown(self):
         Pitch.query.delete()
         User.query.delete()
