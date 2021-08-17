@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/pitch.css')}}">
+{% endblock %} 
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Cactus
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+    <div class="container-fluid bigWrapper">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col">
+                <div class="categs" style="text-align: center;">
+                    <p>
+                        To post a pitch, type in one of the following categories:
+                    </p>
+                    <div class="categlist">
+                        <p>
+                            Love
+                        </p>
+                        <p>
+                            Work
+                        </p>
+                        <p>
+                            Displeasure
+                        </p>
+                    </div>   
+                </div>
+                <div class="newpitch">
+                    <form class="form-floating" action="" method = "POST">
+                        <div class="form-floating mb-3">
+                            <textarea type="text" style="height: 100px;" class="form-control" name = "pitch" id="pitch" value = "{{ pitch }}" placeholder="Your Pitch" rows ="4" required></textarea>
+                            <label for="pitch" class="form-label">Your Pitch</label>
+                        </div> 
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name = "category" id="category" value = "{{ category }}" placeholder="Category of your pitch" required> 
+                            <label for="category">Pitch Category</label>
+                        </div>
+                        <button type="submit" href = "{{url_for('main.home')}}" class="btn btn-outline-secondary">Post it Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+

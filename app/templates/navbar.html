@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">THOUGHTS</a>
+    {% if current_user.is_authenticated %}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{url_for('main.home')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.post_pitch')}}">Post a Pitch</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.category', id = 1)}}">Love</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.category', id = 2)}}">Work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.category', id = 3)}}">Displeasure</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My Profile
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{{url_for('main.profile', userss = current_user.username)}}">Profile</a></li>
+              <li><a class="dropdown-item" href="{{url_for('main.gotoupdate', userss = current_user.username)}}">Update Profile</a></li>
+              <li><a class="dropdown-item" href="{{url_for('authentication.logout')}}">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('main.home')}}">
+              {% if current_user.profile_picture %}
+                <img src="{{ url_for('static', filename = current_user.profile_picture)}}" alt="" width="30" height="30">
+              {% else %}
+                <img src="{{ url_for('static', filename = 'profile_photos/default.jpeg')}}" alt="" width="30" height="24">
+              {% endif %}
+            </a>
+          </li>
+        </ul>
+      {% endif %}
+        
+    
+    </div>
+  </div>
+</nav>
