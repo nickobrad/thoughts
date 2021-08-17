@@ -1,0 +1,38 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/update.css')}}">
+{% endblock %} 
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        My Profile
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                {% if user.profile_picture %}
+                    <img src = "{{ url_for('static', filename = user.profile_picture) }}" alt = "" class = "img-thumbnail" style="height: 300px; width: 300px;">
+                {% else %}
+                    <img src = "{{ url_for('static', filename = 'profile_photos/default.jpeg') }}" alt = "" class = "img-thumbnail" style="height: 300px; width: 300px;">
+                {% endif %}
+            </div>
+            <div class="col">
+                <form action="{{url_for('main.update_profile')}}" method = "POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Your Bio:</label>
+                        <textarea class="form-control" id="bio" name = "bio" value = "{{ bio }}" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark">Update Profile</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
