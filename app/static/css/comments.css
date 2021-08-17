@@ -1,0 +1,54 @@
+.bigWrapper{
+    height:100%;
+    width:100%;
+}
+.row1{
+    background-color: lightslategray;
+    color:white;
+}
+.tops{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 20px;
+}
+.col1{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+.tops2{
+    background-color: lightslategray;
+    display: flex;
+    justify-content: center;
+}
+.row2{
+    background-color: lightslategray;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.col3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 10px 0px;
+}
+.newcomment{
+    width: 60%;
+}
+.texs{
+    height: 80%;
+    color: white;
+}
+.newcomment{
+    padding: 10px 0px;
+}
+.context{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin-top: 10px;
+}

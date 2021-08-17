@@ -1,0 +1,49 @@
+.ppic{
+    width: 300px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pic{
+    /* padding: 10px 10px; */
+    height: 300px;
+    width: 300px;
+}
+.modalwrap{
+    padding: 10px 10px;
+}
+.dets{
+    border-left: 3px solid darkslategray;
+    width: 300px;
+}
+.content{
+    height: 300px;
+    width:300px;
+    margin-top: 10px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    /* align-content: space-around; */
+}
+hr{
+    width:70%;
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.thepitch{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+}
+.card{
+    margin: 10px 10px;
+}
+.thecomment{
+    display: flex;
+    flex-wrap: wrap;
+}

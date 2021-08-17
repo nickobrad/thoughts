@@ -1,0 +1,11 @@
+.row{
+    background-image: url(../images/pp.jpg);
+    height: 610px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.categlist{
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,28 @@
+.bigWrapper{
+    background-color: #374A67;
+    /* background-image: url(../images/pp.jpg); */
+    background-size: cover;
+}
+.job, .love, .hate{
+    padding: 10px 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+.content{
+    padding: 10px 0px;
+    display:flex;
+    flex-wrap: wrap;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+}
+.col{
+    margin: 5px 0px;
+}
+.card{
+    color: whitesmoke;
+    background-color: rgba(126, 141, 133, 0) !important;
+}
